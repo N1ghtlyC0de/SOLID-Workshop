@@ -84,11 +84,11 @@ solid-lab/
 
 | Principio | Rol en la extensión |
 |-----------|---------------------|
-| **OCP** | Se agregó `Musician` sin editar profesiones existentes |
-| **DIP** | `Human` ya dependía de `Profession`; solo se pasó `Musician()` |
-| **ISP** | Solo se añadió `IMusical`, no una interfaz monolítica |
-| **LSP** | `Musician` se usa igual que `Doctor` en la simulación |
-| **SRP** | La lógica musical quedó aislada en su propia clase |
+| **SRP** | La lógica musical quedó aislada en su propia clase`Musician`. No se mezcló con `Human`. |
+| **OCP** | Se agregó `Musician` sin editar ninguna de las profesiones existentes, ni alterar la clase `Human`. |
+| **LSP** | `Musician` se usa exactamente igual que `Doctor` en la simulación. Puede pasarse al constructor de `Human` de forma transparente y el método `perform_action()` corre sin romper el programa. |
+| **ISP** | Solo se añadió `IMusical` y `Playable`, la cual no es una interfaz monolítica. Evita que las demás profesiones tengan que arrastrar el método `playMusic()`. |
+| **DIP** | `Human` ya dependía de la abstracción `Profession`; solo se le pasó la instancia `Musician()`. |
 
 ---
 
