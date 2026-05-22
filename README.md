@@ -70,7 +70,7 @@ solid-lab/
 
 **Implementación:** `Human` depende de `Profession` (abstracción), no de `Doctor` o `Engineer`. Las profesiones concretas dependen de las interfaces en `interfaces/`.
 
-**Discusión — ¿Cómo ayuda DIP con pruebas y extensión?**
+**Discusión — ¿Cómo ayuda DIP con pruebas y extensión de tu simulación?**
 
 - Ayuda al permitir que el código sea más flexible y desacoplado, lo que facilita cambiar implementaciones sin afectar otras partes de la base de código. Esto significa que se pueden inyectar implementaciones falsas (mocks) de la interfaz `Profession` sin necesidad de modificar la clase `Human`. 
 
