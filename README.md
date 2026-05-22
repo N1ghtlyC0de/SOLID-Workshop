@@ -96,20 +96,15 @@ solid-lab/
 
 **Desafíos comunes:**
 
-- Diseño inicial con todo en una sola clase `Human`.
-- Decidir entre herencia y composición para profesiones.
-- Evitar interfaces demasiado grandes o demasiado fragmentadas.
+- Dado que era nuestra primera experiencia aplicando de manera estricta los principios SOLID, el proceso de verificación y comprobación de que el diseño cumpliera con cada uno de ellos resultó parcialmente arduo. En particular, diseñar interfaces pequeñas, significativas y no excesivamente fragmentadas fue un reto no trivial. Asimismo, garantizar que nuevas profesiones pudieran añadirse sin necesidad de modificar el código existente exigió disciplina y consistencia en la aplicación de los principios de diseño.
 
 **Cómo ayudaron los principios SOLID:**
 
-- Código más legible, modular y preparado para nuevas profesiones (Chef, Pilot, etc.).
-- Menor riesgo de regresiones al extender.
+- A medida que íbamos avanzando en el laboratorio, la implementación de los principios SOLID se fue volviendo más fácil de hacer, y poco a poco pudimos ir notando las ventajas de aplicarlos correctamente. Por ejemplo,  el código se volvió más legible, modular y fácil de mantener. Además, la separación de responsabilidades y el desacople entre clases facilitaron la incorporación de nuevas profesiones sin afectar las existentes, hechos que lo hicieron más ameno.
 
 **Mejoras futuras:**
 
-- Patrón Strategy o Factory para crear profesiones por nombre/config.
-- Persistencia y eventos de juego desacoplados (otro SRP).
-- Tests automatizados con mocks de `Profession`.
+- Se puede extender la funcionalidad de la simulación de forma que las profesiones sean más rigurosas y detalladas, y tengan muchos más comportamientos. También se podría permitir que hayan humanos con más de una profesión, ya que enriquecería el nivel de realismo del sistema. Estas mejoras se pueden implementar gracias a la implementación de los principios SOLID, ya que el diseño actual es modular y permite extensiones.
 
 ---
 
