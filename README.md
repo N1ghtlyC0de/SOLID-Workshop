@@ -96,7 +96,7 @@ solid-lab/
 
 **Desafíos comunes:**
 
-- Dado que era nuestra primera experiencia aplicando de manera estricta los principios SOLID, el proceso de verificación y comprobación de que el diseño cumpliera con cada uno de ellos resultó parcialmente arduo. En particular, diseñar interfaces pequeñas, significativas y no excesivamente fragmentadas fue un reto no trivial. Asimismo, garantizar que nuevas profesiones pudieran añadirse sin necesidad de modificar el código existente exigió disciplina y consistencia en la aplicación de los principios de diseño.
+- Dado que era nuestra primera experiencia aplicando de manera estricta los principios SOLID, el proceso de verificación y comprobación de que el diseño cumpliera con cada uno de ellos resultó parcialmente arduo. En particular, diseñar interfaces pequeñas, significativas y no excesivamente fragmentadas fue un reto que tomó un tiempo en superar.
 
 **Cómo ayudaron los principios SOLID:**
 
