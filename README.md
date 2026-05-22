@@ -33,11 +33,7 @@ solid-lab/
 
 **Discusión — ¿Por qué es mejor separar la lógica de profesión de la entidad humano?**
 
-- Un cambio en cómo actúa un Doctor no obliga a modificar `Human`.
-- `Human` tiene una sola razón para cambiar: datos o reglas de la persona, no de las profesiones.
-- Facilita pruebas unitarias: se puede probar `Doctor.heal()` sin instanciar un humano completo.
-- Evita una clase “Dios” con métodos `heal()`, `build()`, `paint()` mezclados.
-
+- Porque evita que la clase `Human` esté anidada a la lógica de las clases para las profesiones. Esto asegura el cumplimiento de la SRP, ya que limita a la clase de los humanos a manejar exclusivamente el nombre y edad de la persona, y dicha clase no se verá afectada en el caso que se quieran modificar los métodos pertenecientes a las profesiones. 
 ---
 
 ## b) Open/Closed Principle (OCP)
@@ -46,9 +42,7 @@ solid-lab/
 
 **Discusión — ¿Cómo permite tu diseño una extensión fácil?**
 
-- Nuevas profesiones implementan `Profession` y las interfaces de acción que necesiten.
-- El simulador trabaja con `Profession`, no con tipos concretos.
-- Se cumple “abierto a extensión, cerrado a modificación”: extender sin tocar clases estables.
+- Debido a que se cumple con el principio de “abierto a extensión, cerrado a modificación”, añadir nuevas profesiones no requiere de la modificación de las clases ya existentes. Esto es de gran ayuda, ya que garantiza que el sistema pueda crecer de manera ordenada al mantener la estabilidad del código ya existente, lo que reduce el riesgo de introducir errores si se llega a añadir nuevas funcionalidades (por ejemplo, la adición de la profesión `Musician`).
 
 ---
 
@@ -58,10 +52,7 @@ solid-lab/
 
 **Discusión — ¿Qué violaría LSP en este diseño?**
 
-- Una subclase que lance excepción en `perform_action()` cuando se espera comportamiento normal.
-- `Doctor` que no pueda “actuar” como `Profession` (por ejemplo, `perform_action()` que no hace nada o rompe invariantes).
-- Forzar en la jerarquía métodos que las subclases no pueden cumplir (p. ej. un `Intern` que “cura” pero está prohibido por reglas de negocio y lanza error).
-- Cambiar contratos de la clase base (precondiciones más fuertes o postcondiciones más débiles en hijos).
+- El LSP se vería comprometido si una subclase de `Profession` altera el comportamiento esperado por el sistema. Por ejemplo, al retornar tipos de datos inesperados, lanzar excepciones no controladas o imponer nuevas condiciones que el método `perform_action()` no anticipaba. 
 
 ---
 
@@ -71,9 +62,7 @@ solid-lab/
 
 **Discusión — ¿Cómo mejora ISP la flexibilidad del código?**
 
-- Las clases no cargan métodos que no usan (“interfaces gordas”).
-- Se puede componer comportamiento: una profesión futura podría implementar varias interfaces si lo necesita.
-- El código cliente (`run_specialized_action`) consulta capacidades con `isinstance`, no asume que todas las profesiones hacen lo mismo.
+- La flexibilidad del código se ve mejorada ya que la ISP implica que el sistema evita la carga de métodos innecesarios a clases que no las requieren. Esto da paso a que el sistema se comporte de manera modular, en el cual cada clase implementa únicamente las interfaces que necesita, y una nueva profesión puede combinar varias interfaces si lo requiere.
 
 ---
 
@@ -83,9 +72,7 @@ solid-lab/
 
 **Discusión — ¿Cómo ayuda DIP con pruebas y extensión?**
 
-- En pruebas se puede inyectar un `Profession` falso (mock) sin tocar `Human`.
-- El módulo de alto nivel (`Human`) no se acopla a detalles de bajo nivel (clases concretas).
-- Nuevas profesiones se conectan por contrato, no por modificar dependencias internas de `Human`.
+- Ayuda al permitir que el código sea más flexible y desacoplado, lo que facilita cambiar implementaciones sin afectar otras partes de la base de código. Esto significa que se pueden inyectar implementaciones falsas (mocks) de la interfaz `Profession` sin necesidad de modificar la clase `Human`. 
 
 ---
 
